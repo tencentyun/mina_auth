@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `cAppinfo`;
 CREATE TABLE `cAppinfo` (
-  `appid` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'åº”ç”¨çš„å”¯ä¸€æ ‡è¯†',
+  `appid` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'åº”ç”¨çš„å”¯ä¸€æ ‡è¯†乱码',
   `secret` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT 'åº”ç”¨çš„å¯†é’¥',
   `login_duration` int(11) DEFAULT '30' COMMENT 'é»˜è®¤ç™»é™†æœ‰æ•ˆæœŸï¼Œå•ä½å¤©',
   `session_duration` int(11) DEFAULT '2592000' COMMENT 'é»˜è®¤sessionæœ‰æ•ˆæœŸ,å•ä½ç§’',
