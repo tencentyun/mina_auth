@@ -47,7 +47,7 @@ class Auth
             $return_message = $http_util->http_get($url);
             if ($return_message!=false) {
                 $json_message = json_decode($return_message, true);
-                if (isset($json_message['openid']) && isset($json_message['session_key']) && isset($json_message['expires_in'])) {
+                if (isset($json_message['openid']) && isset($json_message['session_key']) ) {
                     $uuid = md5((time()-mt_rand(1, 10000)) . mt_rand(1, 1000000));//生成UUID
                     $skey = md5(time() . mt_rand(1, 1000000));//生成skey
                     $create_time = date('Y-m-d H:i:s',time());
@@ -90,7 +90,7 @@ class Auth
                             $arr_result['id'] = $id;
                             $arr_result['skey'] = $skey;
                             $arr_result['user_info'] = json_decode(base64_decode($user_info));
-                            $arr_result['duration'] = $json_message['expires_in'];
+                           
                             $ret['returnCode'] = return_code::MA_OK;
                             $ret['returnMessage'] = 'NEW_SESSION_SUCCESS';
                             $ret['returnData'] = $arr_result;
@@ -102,7 +102,7 @@ class Auth
                             $arr_result['id'] = $change_result;
                             $arr_result['skey'] = $skey;
                             $arr_result['user_info'] = json_decode(base64_decode($user_info));
-                            $arr_result['duration'] = $json_message['expires_in'];
+                           
                             $ret['returnCode'] = return_code::MA_OK;
                             $ret['returnMessage'] = 'UPDATE_SESSION_SUCCESS';
                             $ret['returnData'] = $arr_result;
